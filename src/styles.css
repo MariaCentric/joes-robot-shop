@@ -1,4 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+.strikethrough{
+  text-decoration: line-through;
+  font-size: 18px;
+}
+.red{
+  color: red;
+}
+
+
+
 body {
     background-color: #fff;
     font-family: Arial, Helvetica, sans-serif;

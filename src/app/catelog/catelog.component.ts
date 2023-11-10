@@ -8,6 +8,8 @@ import { IProduct } from './product.model'; //class properties are public by def
 })
 export class CatelogComponent {
   products: IProduct[]; //use typescript create a new file ts
+  filter: string='';
+  cart: any;
 
   constructor() {
     this.products = 
@@ -21,6 +23,7 @@ export class CatelogComponent {
           category: "Heads",
           price: 1220.5,
           discount: 0.2,
+          cart: "my name is Maria"
         },
         {
           id: 17,
@@ -30,6 +33,8 @@ export class CatelogComponent {
           category: "Bases",
           price: 1190.5,
           discount: 0,
+          cart: "my name is Maria"
+
         },
         {
           id: 6,
@@ -40,6 +45,8 @@ export class CatelogComponent {
           category: "Arms",
           price: 275,
           discount: 0,
+          cart: "my name is Maria"
+
         },
         {
           id: 2,
@@ -50,6 +57,8 @@ export class CatelogComponent {
           category: "Heads",
           price: 945.0,
           discount: 0.2,
+          cart: "my name is Maria"
+
         },
         {
           id: 3,
@@ -60,6 +69,8 @@ export class CatelogComponent {
           category: "Heads",
           price: 1275.5,
           discount: 0,
+          cart: "my name is Maria"
+
         },
         {
           id: 16,
@@ -70,6 +81,8 @@ export class CatelogComponent {
           category: "Bases",
           price: 1190.5,
           discount: 0.1,
+          cart: "my name is Maria"
+
         },
         {
           id: 13,
@@ -79,6 +92,8 @@ export class CatelogComponent {
           category: "Torsos",
           price: 785,
           discount: 0,
+          cart: "my name is Maria"
+
         },
         {
           id: 7,
@@ -89,6 +104,8 @@ export class CatelogComponent {
           category: "Arms",
           price: 285,
           discount: 0,
+          cart: "my name is Maria"
+
         },
       
         {
@@ -99,6 +116,8 @@ export class CatelogComponent {
           category: "Heads",
           price: 750.0,
           discount: 0,
+          cart: "my name is Maria"
+
         },
         {
           id: 9,
@@ -109,6 +128,8 @@ export class CatelogComponent {
           category: "Arms",
           price: 230,
           discount: 0.1,
+          cart: "my name is Maria"
+
         },
         {
           id: 15,
@@ -118,6 +139,8 @@ export class CatelogComponent {
           category: "Bases",
           price: 1520.5,
           discount: 0,
+          cart: "my name is Maria"
+
         },
         {
           id: 10,
@@ -127,6 +150,8 @@ export class CatelogComponent {
           category: "Arms",
           price: 125,
           discount: 0,
+          cart: "my name is Maria"
+
         },
         {
           id: 11,
@@ -137,6 +162,8 @@ export class CatelogComponent {
           category: "Torsos",
           price: 1575,
           discount: 0,
+          cart: "my name is Maria"
+
         },
         {
           id: 14,
@@ -146,6 +173,8 @@ export class CatelogComponent {
           category: "Bases",
           price: 895,
           discount: 0,
+          cart: "my name is Maria"
+
         },
         {
           id: 5,
@@ -156,6 +185,8 @@ export class CatelogComponent {
           category: "Heads",
           price: 1255.5,
           discount: 0,
+          cart: "my name is Maria"
+
         },
         {
           id: 8,
@@ -165,6 +196,8 @@ export class CatelogComponent {
           category: "Arms",
           price: 205.5,
           discount: 0,
+          cart: "my name is Maria"
+
         },
         {
           id: 12,
@@ -174,6 +207,8 @@ export class CatelogComponent {
           category: "Torsos",
           price: 1385,
           discount: 0,
+          cart: "my name is Maria"
+
         },
         {
           id: 18,
@@ -184,11 +219,25 @@ export class CatelogComponent {
           category: "Bases",
           price: 700.5,
           discount: 0,
+          cart:"add to cart",
         },
       ];
         
   }
+
+  addToCart(product:IProduct){
+    this.cart.push(product);
+    console.log(`product ${product.name} added to cart`);
+  }
+
+  //Put methods here!
   getImageUrl(product:IProduct){
     return '/assets/images/robot-parts/' + product.imageName;
+  }
+  
+  getFilteredProducts(){
+    return this.filter === ''
+    ? this.products
+    : this.products.filter((product) => product.category === this.filter);
   }
 }
